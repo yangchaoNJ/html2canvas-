@@ -1,0 +1,57 @@
+<!DOCTYPE html> 
+<html> 
+<head> 
+<meta charset="utf-8"> 
+<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no"> 
+<title>Test</title> 
+<style type="text/css"> 
+*{ 
+  margin:0 auto; 
+  padding:0; 
+} 
+.btn{ 
+  width:100px; 
+  height:30px; 
+  line-height:30px; 
+  background:green; 
+  color:#fff; 
+  border-radius:10px; 
+  -webkit-border-radius:10px; 
+  text-align:center; 
+  display:block; 
+  text-decoration:none; 
+  } 
+.container{ 
+  background:#e5e5e5; 
+} 
+</style> 
+<script src="https://code.jquery.com/jquery-3.2.1.min.js"></script> 
+<script src="html2canvas.js"></script> 
+<script> 
+ 
+$(function(){ 
+  $("#btn").click(function(){ 
+    html2canvas($("#container"), { 
+		useCORS:true,
+		allowTaint:true,
+		onrendered: function(canvas) { 
+			document.body.appendChild(canvas); 
+		} 
+    }); 
+  }); 
+}); 
+</script> 
+</head> 
+ 
+<body> 
+  <div style="padding:10px 0"> 
+    <div class="btn" id="btn">截取屏幕</div> 
+    <p style="color:red; text-align:center;">先点击截取屏幕后再点击截图下载</p> 
+  </div> 
+  <div class="container" id="container"> 
+    <p style="text-align:center">以下是测试内容</p> 
+    <img src="https://lh3.googleusercontent.com/IyxNFJjqauBk3iVd4VhF6eoNxe-jMnxY7wPSmFCUaEVNK6iq_X4Beu3onIMZ7J3-y5mP7mUKJ0iaW4Wo00VYEKJaA0he1XAZOmzYG3Y5">
+<img src="20171222135543.jpg"> 	
+  </div> 
+</body> 
+</html> 
